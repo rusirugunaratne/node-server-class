@@ -20,10 +20,8 @@ const customerSchema = new mongoose.Schema<Customer>({
     required: [true, "Email is required"],
     trim: true,
     lowercase: true,
-    match: [
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-      "Please fill a valid email address",
-    ],
+    index: true,
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Please fill a valid email address"],
   },
   phone: {
     type: String,

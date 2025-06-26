@@ -4,6 +4,7 @@ import { connectDB } from "./db/mongo"
 import rootRouter from "./routes"
 import { errorHandler } from "./middlewares/errorHandler"
 import cors from "cors"
+import cookieParser from "cookie-parser"
 
 dotenv.config()
 const app = express()
@@ -19,6 +20,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 app.use(express.json())
+app.use(cookieParser())
 // to give express the ability to handle jsons
 
 const PORT = process.env.PORT

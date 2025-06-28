@@ -6,8 +6,11 @@ import {
   getCustomers,
   updateCustomer,
 } from "../controllers/customer.controller"
+import { authenticateToken } from "../middlewares/authenticateToken"
 
 const customerRouter = Router()
+customerRouter.use(authenticateToken)
+// this blocks all the routes in this router
 
 customerRouter.post("/", createCustomer)
 customerRouter.get("/", getCustomers)
